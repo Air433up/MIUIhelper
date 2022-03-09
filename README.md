@@ -39,7 +39,7 @@
     ![example1](image/example1.png)  
     ![example2](image/example2.png)  
 
-* 最后将`chromedriver`放入该项目的目录下，至此结束  
+* 最后将`chromedriver`放入该项目的目录下，至此结束(若没有对应浏览器版本就选择版本号相近的)  
     ![example3](image/example3.png)  
   
 # 使用  
