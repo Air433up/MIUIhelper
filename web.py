@@ -32,9 +32,7 @@ def Answer(account, password):
     WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
     print("登录成功！")
 
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.TAG_NAME, "section"))
-    )  # 等待进入界面
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "section")))  # 等待进入界面
     print("已进入答题页面！")
     try:
         WebDriverWait(MIUI, 10).until(
