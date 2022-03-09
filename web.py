@@ -1,6 +1,5 @@
-from time import sleep
 import json
-import random
+import random,requests
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,8 +8,12 @@ from selenium.webdriver.common.by import By
 
 def Answer(account, password):
 
+    correctGitee = requests.get(url="https://gitee.com/azurstar/MIUIhelper/raw/main/data/correctCopy.json").text
+    correctGitee = json.loads(correctGitee) #不定期在gitee上更新数据
+
     with open("data/correct.json", "r", encoding="utf-8") as r:
         crrect = json.load(r)
+    crrect = dict(crrect, **correctGitee)
 
     with open("data/keywords.json", "r", encoding="utf-8") as r:
         keywords = json.load(r)
@@ -22,21 +25,11 @@ def Answer(account, password):
 
     MIUI = webdriver.Chrome(options=chrome_options)
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))
-    ).click()
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.NAME, "account"))
-    ).send_keys(account)
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.NAME, "password"))
-    ).send_keys(password)
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))
-    ).click()
-    WebDriverWait(MIUI, 10).until(
-        EC.visibility_of_element_located((By.TAG_NAME, "button"))
-    ).click()
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
+    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
     print("登录成功！")
 
     WebDriverWait(MIUI, 10).until(
@@ -109,11 +102,7 @@ def GetList(account, password):
         WebDriverWait(Lst, 10).until(
             EC.visibility_of_element_located((By.TAG_NAME, "button"))
         ).click()
-        r = (
-            WebDriverWait(Lst, 10)
-            .until(EC.visibility_of_element_located((By.TAG_NAME, "pre")))
-            .text
-        )
+        r = WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "pre"))).text
         r = json.loads(r)
         return r
 
