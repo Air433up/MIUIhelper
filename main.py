@@ -4,8 +4,8 @@ from web import Answer, GetList
 with open("data/accounts.json", "r", encoding="utf-8") as r:
     accounts = json.load(r)
 
-correct = {}
 for Account in accounts:
+    correct = {}
     Answer(account=Account["account"], password=Account["password"])
     lst = GetList(account=Account["account"], password=Account["password"])
     for qu in lst:

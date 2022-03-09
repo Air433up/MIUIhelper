@@ -5,6 +5,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+chrome_options.add_argument("--no-sandbox")
 
 def Answer(account, password):
 
@@ -17,11 +22,6 @@ def Answer(account, password):
 
     with open("data/keywords.json", "r", encoding="utf-8") as r:
         keywords = json.load(r)
-
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
     MIUI = webdriver.Chrome(options=chrome_options)
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
@@ -74,11 +74,6 @@ def Answer(account, password):
 
 
 def GetList(account, password):
-
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
     Lst = webdriver.Chrome(options=chrome_options)
     Lst.get(url="https://api.vip.miui.com/api/alpha/daily/list")
