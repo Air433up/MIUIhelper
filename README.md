@@ -28,19 +28,19 @@
 
 * 浏览器版本查看  
     * Windows  
-    ![Win](image\ChromeVersion_win.png)
+    ![Win](image/ChromeVersion_win.png)
     * Linux  
-    ![Linux](image\ChromeVersion_linux.png)
+    ![Linux](image/ChromeVersion_linux.png)
     `google-chrome --version`
 
 * 将`Chromedriver`放入该项目目录下，`Chromedriver`的版本需要根据浏览器选择  
     * [Chromedriver下载](http://chromedriver.storage.googleapis.com/index.html)  
     * 根据浏览器版本选择(以Linux为例，我的浏览器版本为`98.0.4758.80`)  
-    ![example1](image\example1.png)
-    ![example2](image\example2.png)
+    ![example1](image/example1.png)
+    ![example2](image/example2.png)
 
 * 最后将`chromedriver`放入该项目的目录下，至此结束  
-    ![example3](image\example3.png)  
+    ![example3](image/example3.png)  
 
 # 使用
 * 将小米账户的`账号`和`密码`分别填入`accounts.json`中的`account`与`password`，支持多账号答题  
