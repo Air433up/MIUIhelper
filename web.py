@@ -80,21 +80,11 @@ def GetList(account, password):
 
     def login(Lst: webdriver.Chrome, account, password):
         Lst.get(url=lst["loginUrl"])
-        WebDriverWait(Lst, 10).until(
-            EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))
-        ).click()
-        WebDriverWait(Lst, 10).until(
-            EC.visibility_of_element_located((By.NAME, "account"))
-        ).send_keys(account)
-        WebDriverWait(Lst, 10).until(
-            EC.visibility_of_element_located((By.NAME, "password"))
-        ).send_keys(password)
-        WebDriverWait(Lst, 10).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))
-        ).click()
-        WebDriverWait(Lst, 10).until(
-            EC.visibility_of_element_located((By.TAG_NAME, "button"))
-        ).click()
+        WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
+        WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
+        WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+        WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
+        WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
         r = WebDriverWait(Lst, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "pre"))).text
         r = json.loads(r)
         return r
