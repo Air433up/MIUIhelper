@@ -32,7 +32,7 @@
     ![Win](image/ChromeVersion_win.png)  
     * Linux  
     ![Linux](image/ChromeVersion_linux.png)  
-    `google-chrome --version`  
+    ```google-chrome --version```  
   
 * 将`Chromedriver`放入该项目目录下，`Chromedriver`的版本需要根据浏览器选择  
     * [Chromedriver下载](http://chromedriver.storage.googleapis.com/index.html)  
