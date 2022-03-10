@@ -36,7 +36,7 @@ def Answer(account, password):
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
-    print("\n登录成功！")
+    print(f"\n{account}登录成功！")
 
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "section")))  # 等待进入界面
     print("已进入答题页面！")
@@ -51,7 +51,7 @@ def Answer(account, password):
             question = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_title__3WufQ"))).text
             options = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "DailyQuestions_option__WTHY5")))
 
-            print("\n",question)
+            print("\n",question,end="")
             t = 0
             for option in options:
                 t+=1
@@ -60,10 +60,14 @@ def Answer(account, password):
                 except:Cquestion = None
                 if optionText == Cquestion:
                     option.click()
+                    print("--"+optionText)
                 elif optionText in keywords:
                     option.click()
+                    print("--"+optionText)
                 elif t >= 4:
-                    random.choice(options).click()
+                    r = random.choice(options)
+                    r.click()
+                    print("--"+r.text)
             
         except:
             MIUI.refresh()
