@@ -1,4 +1,5 @@
 import json
+from multiprocessing.connection import wait
 import random,requests
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -10,6 +11,9 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 chrome_options.add_argument("--no-sandbox")
+
+wait_time = 10 
+answer_time = 5
 
 def Answer(account, password):
 
@@ -25,32 +29,26 @@ def Answer(account, password):
 
     MIUI = webdriver.Chrome(options=chrome_options)
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
-    print("登录成功！")
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
+    print("\n登录成功！")
 
-    WebDriverWait(MIUI, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "section")))  # 等待进入界面
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "section")))  # 等待进入界面
     print("已进入答题页面！")
     try:
-        WebDriverWait(MIUI, 10).until(
-            EC.visibility_of_element_located(
-                (By.CLASS_NAME, "DailyQuestions_start__2h7_C")
-            )
-        ).click()
+        WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_start__2h7_C"))).click()
     except:
         pass
     print("准备开始答题...")
-    q = 0
-    while True:
+    for ty in range(10):
+        print("\r尝试次数:",ty+1,end="",flush=True)
         try:
-            q += 1
-            if q >= 10:return
             MIUI.refresh()
-            question = WebDriverWait(MIUI, 4).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_title__3WufQ"))).text
-            options = WebDriverWait(MIUI, 4).until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "DailyQuestions_option__WTHY5")))
+            question = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_title__3WufQ"))).text
+            options = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "DailyQuestions_option__WTHY5")))
 
             print(question)
             t = 0
@@ -68,8 +66,6 @@ def Answer(account, password):
             
         except:
             MIUI.refresh()
-            continue
-
 
 def GetList(account, password):
 

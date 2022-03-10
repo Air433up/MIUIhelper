@@ -2,3 +2,4 @@
 *.exe
 data/accounts.json
 data/account.json
+__pycache__
