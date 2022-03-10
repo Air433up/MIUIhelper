@@ -67,7 +67,7 @@ def Answer(account, password):
                 elif t >= 4:
                     r = random.choice(options)
                     r.click()
-                    print("--"+r.text+"无法判断,已随机选择!")
+                    print("--"+r.text+"--无法判断,已随机选择!")
             
         except:
             MIUI.refresh()
