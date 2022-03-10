@@ -2,5 +2,5 @@
 *.exe
 data/accounts.json
 data/account.json
-__pycache__
 data/history.json
+__pycache__
