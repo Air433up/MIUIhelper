@@ -45,6 +45,7 @@
   
 # 使用  
 * 将小米账户的`账号`和`密码`分别填入`accounts.json`中的`account`与`password`，支持多账号答题  
+* 在项目目录下使用`python3 main.py`即可  
 * 自动运行  
     * Windows 可以使用系统自带的`计划任务`(详见百度)  
     * Linux 可以使用`crontab`  
