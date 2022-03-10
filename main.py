@@ -2,7 +2,7 @@ import json
 from web import Answer, GetList
 from update import update,finish,record
 
-with open("data/account.json", "r", encoding="utf-8") as r:
+with open("data/accounts.json", "r", encoding="utf-8") as r:
     accounts = json.load(r)
 
 for Account in accounts:
