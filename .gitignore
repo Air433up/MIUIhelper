@@ -1,3 +1,4 @@
 
 *.exe
 data/accounts.json
+data/account.json
