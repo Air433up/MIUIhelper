@@ -30,3 +30,4 @@ for Account in accounts:
         print("数据收集完成！")
     print("开始尝试寻找其他账号...")
 print("\n结束！")
+exit()
