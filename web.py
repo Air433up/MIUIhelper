@@ -13,7 +13,7 @@ chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_experimental_option('prefs',prefs)
 
-wait_time = 10 
+wait_time = 10
 answer_time = 5
 
 def Answer(account, password):
@@ -36,7 +36,13 @@ def Answer(account, password):
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
-    print(f"\n{account}登录成功！")
+
+    try:
+        WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_container__2nqZ8")))
+        print(f"\n{account}登录成功！")
+    except:
+        print(f"\n{account}登录失败...")
+        return False
 
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "section")))  # 等待进入界面
     print("已进入答题页面！")
@@ -66,11 +72,13 @@ def Answer(account, password):
                     print("--"+optionText)
                 elif t >= 4:
                     r = random.choice(options)
+                    RT = r.text
                     r.click()
-                    print("--"+r.text+"--无法判断,已随机选择!")
+                    print(f"--{RT}--无法判断,已随机选择!")
             
         except:
             MIUI.refresh()
+    return True
 
 def GetList(account, password):
 

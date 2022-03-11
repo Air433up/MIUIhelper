@@ -11,7 +11,8 @@ for Account in accounts:
     if finish(Account["account"]): 
         print("\n"+Account["account"]+"已完成，跳过执行...")
         continue
-    Answer(account=Account["account"], password=Account["password"])
+    answer = Answer(account=Account["account"], password=Account["password"])
+    if answer == False: continue
     print("\n正在收集题目数据...")
     lst = GetList(account=Account["account"], password=Account["password"])
     for qu in lst:
