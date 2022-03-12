@@ -31,14 +31,14 @@ def Answer(account, password):
 
     MIUI = webdriver.Chrome(options=chrome_options)
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
-    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
-    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
-    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
-    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[2]/div/div[1]/div/input"))).send_keys(password) # 输入密码
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[3]/label/span[1]"))).click() # 勾选协议
+    WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/button"))).click() # 点击登录
 
     try:
-        WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_container__2nqZ8")))
+        WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div[3]"))) # 判断是否打开答题页面
         print(f"\n{account}登录成功！")
     except:
         print(f"\n{account}登录失败...")
@@ -52,7 +52,7 @@ def Answer(account, password):
     for ty in range(6):
         print("\r尝试次数:",ty+1,end="",flush=True)
         try:
-            try:WebDriverWait(MIUI, answer_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_start__2h7_C"))).click()
+            try:WebDriverWait(MIUI, 1).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_start__2h7_C"))).click()
             except:pass
             question = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_title__3WufQ"))).text
             options = WebDriverWait(MIUI, answer_time).until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "DailyQuestions_option__WTHY5")))
@@ -78,6 +78,7 @@ def Answer(account, password):
             
         except:
             MIUI.refresh()
+    MIUI.quit()
     return True
 
 def GetList(account, password):
@@ -89,16 +90,16 @@ def GetList(account, password):
 
     def login(Lst: webdriver.Chrome, account, password):
         Lst.get(url=lst["loginUrl"])
-        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.LINK_TEXT, "密码登录"))).click()
-        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.NAME, "account"))).send_keys(account)
-        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.NAME, "password"))).send_keys(password)
-        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "ant-checkbox"))).click()
-        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "button"))).click()
+        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
+        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
+        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[2]/div/div[1]/div/input"))).send_keys(password) # 输入密码
+        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[3]/label/span[1]"))).click() # 勾选协议
+        WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/button"))).click() # 点击登录
         r = WebDriverWait(Lst, wait_time).until(EC.visibility_of_element_located((By.TAG_NAME, "pre"))).text
         r = json.loads(r)
         return r
 
     if lst["code"] != 200:
         lst = login(Lst, account, password)
-
+    Lst.quit()
     return lst["entity"]["list"]
