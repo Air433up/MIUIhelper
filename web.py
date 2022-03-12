@@ -29,7 +29,7 @@ def Answer(account, password):
     with open("data/keywords.json", "r", encoding="utf-8") as r:
         keywords = json.load(r)
 
-    MIUI = webdriver.Chrome(options=chrome_options)
+    MIUI = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
@@ -83,7 +83,7 @@ def Answer(account, password):
 
 def GetList(account, password):
 
-    Lst = webdriver.Chrome(options=chrome_options)
+    Lst = webdriver.Chrome(executable_path="chromedriver",options=chrome_options)
     Lst.get(url="https://api.vip.miui.com/api/alpha/daily/list")
     lst = Lst.find_element(by=By.TAG_NAME, value="pre").text
     lst = json.loads(lst)
