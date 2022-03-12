@@ -83,7 +83,7 @@ def Answer(account, password):
 
 def GetList(account, password):
 
-    Lst = webdriver.Chrome(executable_path="chromedriver",options=chrome_options)
+    Lst = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
     Lst.get(url="https://api.vip.miui.com/api/alpha/daily/list")
     lst = Lst.find_element(by=By.TAG_NAME, value="pre").text
     lst = json.loads(lst)
