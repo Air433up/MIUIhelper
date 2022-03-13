@@ -49,7 +49,7 @@ def Answer(account, password):
     try:WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_start__2h7_C"))).click()
     except:pass
     print("准备开始答题...")
-    for ty in range(6):
+    for ty in range(8):
         print("\r尝试次数:",ty+1,end="",flush=True)
         try:
             try:WebDriverWait(MIUI, 1).until(EC.visibility_of_element_located((By.CLASS_NAME, "DailyQuestions_start__2h7_C"))).click()
