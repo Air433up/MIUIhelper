@@ -5,13 +5,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-prefs = {'profile.managed_default_content_settings.images': 2}
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_experimental_option('prefs',prefs)
+def browser():
+    prefs = {'profile.managed_default_content_settings.images': 2}
+    chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--disable-gpu")
+    # chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_experimental_option('prefs',prefs)
+    return webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
 
 wait_time = 10
 answer_time = 5
@@ -29,7 +31,7 @@ def Answer(account, password):
     with open("data/keywords.json", "r", encoding="utf-8") as r:
         keywords = json.load(r)
 
-    MIUI = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
+    MIUI = browser()
     MIUI.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
     WebDriverWait(MIUI, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
@@ -83,7 +85,7 @@ def Answer(account, password):
 
 def GetList(account, password):
 
-    Lst = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
+    Lst = browser()
     Lst.get(url="https://api.vip.miui.com/api/alpha/daily/list")
     lst = Lst.find_element(by=By.TAG_NAME, value="pre").text
     lst = json.loads(lst)
@@ -103,3 +105,15 @@ def GetList(account, password):
         lst = login(Lst, account, password)
     Lst.quit()
     return lst["entity"]["list"]
+
+def internalTest(account, password):
+    Test = browser()
+    Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[2]/div/div[1]/div/input"))).send_keys(password) # 输入密码
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[3]/label/span[1]"))).click() # 勾选协议
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/button"))).click() # 点击登录
+    UserAgent = "Dalvik/2.1.0 (Linux; U; Android 7.0; MI NOTE Pro MIUI/V9.2.3.0.NXHCNEK) APP/xiaomi.vipaccount APPV/220301 MK/TUkgTk9URSBQcm8= PassportSDK/3.7.8 passport-ui/3.7.8"
+    Test.execute_cdp_cmd("Emulation.setUserAgentOverride", {"userAgent": UserAgent})
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div[4]/section[2]/ul/div/span"))).click() # 点击展开
