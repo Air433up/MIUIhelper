@@ -4,3 +4,4 @@ data/accounts.json
 data/account.json
 data/history.json
 __pycache__
+internalTest/Answer/data/account.json
