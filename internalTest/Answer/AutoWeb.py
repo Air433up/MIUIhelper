@@ -46,6 +46,8 @@ def internalTest(account, password,tasks):
             except:pass
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.ID, "root")))
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "SystemTestDetails_rightIcon__1E11Q"))).click() # 点击答题
+        try:WebDriverWait(Test, 2).until(EC.visibility_of_element_located((By.CLASS_NAME, "Button_btn__3V80m"))).click() # 点击再次答题
+        except:pass
         try:WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "/html/body/section/div/div/div[1]/div[2]/div"))).click() # 点击同意协议
         except:pass
         print(f"进入{task}答题页面...")
@@ -63,10 +65,13 @@ def internalTest(account, password,tasks):
                 judge = 1
                 try:Copt = Questions[question]
                 except:Copt = []
+                print("\n"+question+mask)
                 for option in options:
                     if option.text in Copt:
                         option.click()
                         judge = 0
+                        print(option.text)
+                print()
                 if judge:
                     print("\n\n"+question+mask)
                     SelectedOptions = []
