@@ -72,16 +72,19 @@ def internalTest(account, password,tasks):
                     for option in options:
                         print(f"{options.index(option)}:{option.text}")
                     options_index = str(input("输入选项索引:"))
+                    try:Qoptions = Questions[options]
+                    except:Qoptions = []
                     for i in options_index:
                         i = int(i)
                         options[i].click()
                         SelectedOptions.append(options[i].text)
+                        SelectedOptions += Qoptions
                     try:
-                        with open("internalTest/Collct/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
+                        with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
                     except:
                         data = {}
                     data[question] = SelectedOptions
-                    with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
+                    with open("internalTest/Answer/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
 
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
