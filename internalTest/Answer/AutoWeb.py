@@ -1,4 +1,5 @@
 import json
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,7 +14,7 @@ def browser():
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_experimental_option('prefs',prefs)
+    chrome_options.add_experimental_option('prefs',prefs)
     return webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
 
 wait_time = 10
@@ -36,6 +37,7 @@ def internalTest(account, password,tasks):
 
         UserAgent = "Dalvik/2.1.0 (Linux; U; Android 7.0; MI NOTE Pro MIUI/V9.2.3.0.NXHCNEK) APP/xiaomi.vipaccount APPV/220301 MK/TUkgTk9URSBQcm8= PassportSDK/3.7.8 passport-ui/3.7.8"
         Test.execute_cdp_cmd("Emulation.setUserAgentOverride", {"userAgent": UserAgent})
+        sleep(1)
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_find-more__1Fe8J"))).click() # 点击展开
         TestOptions = WebDriverWait(Test, wait_time).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "TestCenter_text__SUpLA")))
         for TestOption in TestOptions:
