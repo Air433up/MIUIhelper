@@ -72,7 +72,7 @@ def internalTest(account, password,tasks):
                 except:
                     data = {}
                 data[question] = SelectedOptions
-                with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
+                with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
                 Test.refresh()
