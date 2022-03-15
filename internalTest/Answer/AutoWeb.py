@@ -4,6 +4,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:Questions = json.load(r)
+
 def browser():
     prefs = {'profile.managed_default_content_settings.images': 2}
     chrome_options = webdriver.ChromeOptions()
@@ -57,22 +59,30 @@ def internalTest(account, password,tasks):
                 question = WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "topic"))).text
                 mask = WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "mask"))).text
                 options:list = WebDriverWait(Test, wait_time).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "content")))
-                print("\n\n"+question+mask)
-                SelectedOptions = []
+                judge = 1
+                try:Copt = Questions[question]
+                except:Copt = []
                 for option in options:
-                    print(f"{options.index(option)}:{option.text}")
-                options_index = str(input("输入选项索引:"))
+                    if option.text in Copt:
+                        option.click()
+                        judge = 0
+                if judge:
+                    print("\n\n"+question+mask)
+                    SelectedOptions = []
+                    for option in options:
+                        print(f"{options.index(option)}:{option.text}")
+                    options_index = str(input("输入选项索引:"))
+                    for i in options_index:
+                        i = int(i)
+                        options[i].click()
+                        SelectedOptions.append(options[i].text)
+                    try:
+                        with open("internalTest/Collct/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
+                    except:
+                        data = {}
+                    data[question] = SelectedOptions
+                    with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
 
-                for i in options_index:
-                    i = int(i)
-                    options[i].click()
-                    SelectedOptions.append(options[i].text)
-                try:
-                    with open("internalTest/Collct/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
-                except:
-                    data = {}
-                data[question] = SelectedOptions
-                with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
                 Test.refresh()
