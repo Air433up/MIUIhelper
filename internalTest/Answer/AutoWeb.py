@@ -5,8 +5,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:Questions = json.load(r)
-
 def browser():
     prefs = {'profile.managed_default_content_settings.images': 2}
     chrome_options = webdriver.ChromeOptions()
@@ -21,6 +19,7 @@ wait_time = 10
 
 def internalTest(account, password,tasks):
     for task in tasks:
+        with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:Questions = json.load(r)
         Test = browser()
         Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
