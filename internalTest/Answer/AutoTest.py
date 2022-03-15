@@ -5,3 +5,4 @@ with open("internalTest/Answer/data/accounts.json", "r", encoding="utf-8") as r:
 
 for Account in accounts:
     internalTest(account=Account["account"], password=Account["password"],tasks=Account["tasks"])
+print("结束!")
