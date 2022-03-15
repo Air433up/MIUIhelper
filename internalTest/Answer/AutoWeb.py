@@ -84,7 +84,7 @@ def internalTest(account, password,tasks):
                         i = int(i)
                         options[i].click()
                         SelectedOptions.append(options[i].text)
-                        SelectedOptions += Qoptions
+                        SelectedOptions = SelectedOptions + Qoptions
                     try:
                         with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
                     except:
