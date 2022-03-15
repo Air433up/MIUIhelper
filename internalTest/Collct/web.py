@@ -69,11 +69,11 @@ def internalTest(account, password,tasks):
                     options[i].click()
                     SelectedOptions.append(options[i].text)
                 try:
-                    with open("data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
+                    with open("internalTest/Collct/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
                 except:
                     data = {}
                 data[question] = SelectedOptions
-                with open("data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
+                with open("internalTest/Collct/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2)
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
                 Test.refresh()
