@@ -54,18 +54,28 @@ def internalTest(account, password,tasks):
         try:WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "/html/body/section/div/div/div[1]/div[2]/div"))).click() # 点击同意协议
         except:pass
         print(f"进入{task}答题页面...")
-        for t in range(100):
+        correctList = set()
+        for t in range(100):                        
+            try:
+                with open(f"internalTest/Answer/data/Correct{filenames[task]}.json", "r", encoding="utf-8") as r:RcorrectList = set(json.load(r))
+            except:RcorrectList = set()
+
             try:
                 scores = WebDriverWait(Test, 2).until(EC.visibility_of_element_located((By.CLASS_NAME, "AnswerPage_num__QpO1_"))).text
+                if scores == "100":
+                    RcorrectList = RcorrectList.union(correctList)
+                    with open(f"internalTest/Answer/data/Correct{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(list(RcorrectList),fp=w,indent=2,ensure_ascii=False)
                 print(f"\n{task}答题--本次得分:{scores}")
                 break
             except:pass
+
             try:
                 print(f"\r尝试次数:{t+1}",end="",flush=True)
                 question = WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "topic"))).text
                 mask = WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "mask"))).text
                 options:list = WebDriverWait(Test, wait_time).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "content")))
                 judge = 1
+                correctList.add(question)
                 try:Copt = Questions[question]
                 except:Copt = []
                 print("\n"+question+mask)
