@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
+filenames = {"开发版公测":"DevelopmentPublicTest","开发版内测":"DevelopmentInternalTest","稳定版内测":"StableInternalTest"}
 def browser():
     prefs = {'profile.managed_default_content_settings.images': 2}
     chrome_options = webdriver.ChromeOptions()
@@ -19,7 +19,9 @@ wait_time = 10
 
 def internalTest(account, password,tasks):
     for task in tasks:
-        with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:Questions = json.load(r)
+        try:
+            with open(f"internalTest/Answer/data/{filenames[task]}.json", "r", encoding="utf-8") as r:Questions = json.load(r)
+        except:Questions = {}
         Test = browser()
         Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
@@ -78,19 +80,18 @@ def internalTest(account, password,tasks):
                     for option in options:
                         print(f"{options.index(option)}:{option.text}")
                     options_index = str(input("输入选项索引:"))
-                    try:Qoptions = Questions[options]
-                    except:Qoptions = []
                     for i in options_index:
                         i = int(i)
                         options[i].click()
                         SelectedOptions.append(options[i].text)
-                        SelectedOptions = SelectedOptions + Qoptions
+                    for Q in Copt:
+                        if Q not in SelectedOptions:SelectedOptions.append(Q)
                     try:
-                        with open("internalTest/Answer/data/questions.json", "r", encoding="utf-8") as r:data = json.load(r)
+                        with open(f"internalTest/Answer/data/{filenames[task]}.json", "r", encoding="utf-8") as r:data = json.load(r)
                     except:
                         data = {}
                     data[question] = SelectedOptions
-                    with open("internalTest/Answer/data/questions.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
+                    with open(f"internalTest/Answer/data/{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
 
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
