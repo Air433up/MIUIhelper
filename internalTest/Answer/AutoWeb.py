@@ -1,5 +1,4 @@
 import json
-from time import sleep
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -40,7 +39,7 @@ def internalTest(account, password,tasks):
             return False
 
         Test.execute_cdp_cmd("Emulation.setUserAgentOverride", {"userAgent": UserAgent})
-        sleep(1)
+
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_find-more__1Fe8J"))).click() # 点击展开
         TestOptions = WebDriverWait(Test, wait_time).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "TestCenter_text__SUpLA")))
         for TestOption in TestOptions:
@@ -94,7 +93,7 @@ def internalTest(account, password,tasks):
                         data = {}
                     data[question] = SelectedOptions
                     with open(f"internalTest/Answer/data/{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
-                sleep(1)
+
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
                 Test.refresh()
