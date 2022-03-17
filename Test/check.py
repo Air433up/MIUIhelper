@@ -3,6 +3,7 @@ import json
 filenames = {"开发版公测":"DevelopmentPublicTest","开发版内测":"DevelopmentInternalTest","稳定版内测":"StableInternalTest"}
 
 def check(task):
+    print(task+"---------")
     with open(f"Test/data/Correct{filenames[task]}.json", "r", encoding="utf-8") as r:Correct = set(json.load(r))
     with open(f"Test/data/{filenames[task]}.json", "r", encoding="utf-8") as r:data:dict = json.load(r)
     for question in data:
@@ -71,6 +72,7 @@ def accuracy(tasks = filenames):
 # check("开发版公测")
 # check("开发版内测")
 # check("稳定版内测")
+
 contrast("开发版内测","开发版公测")
 
 accuracy("开发版公测")
