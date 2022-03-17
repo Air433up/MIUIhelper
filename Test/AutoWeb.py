@@ -83,9 +83,10 @@ def internalTest(account, password,tasks):
                 print("\n"+question+mask)
                 for option in options:
                     if option.text in Copt:
-                        All = ["以上都是","这些都是"]
+                        All = ["以上都是","这些都是","其他三项都可以"]
                         if (option.text in All) and (option.text in Copt):
                             option.click()
+                            print(option.text)
                             judge = 0
                             break
                         option.click()
