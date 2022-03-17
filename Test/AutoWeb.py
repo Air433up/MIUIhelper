@@ -23,7 +23,7 @@ wait_time = 10
 def internalTest(account, password,tasks):
     for task in tasks:
         try:
-            with open(f"internalTest/data/{filenames[task]}.json", "r", encoding="utf-8") as r:Questions = json.load(r)
+            with open(f"Test/data/{filenames[task]}.json", "r", encoding="utf-8") as r:Questions = json.load(r)
         except:Questions = {}
         Test = browser()
         Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
@@ -58,14 +58,14 @@ def internalTest(account, password,tasks):
         correctList = set()
         for t in range(100):                        
             try:
-                with open(f"internalTest/data/Correct{filenames[task]}.json", "r", encoding="utf-8") as r:RcorrectList = set(json.load(r))
+                with open(f"Test/data/Correct{filenames[task]}.json", "r", encoding="utf-8") as r:RcorrectList = set(json.load(r))
             except:RcorrectList = set()
 
             try:
                 scores = WebDriverWait(Test, 2).until(EC.visibility_of_element_located((By.CLASS_NAME, "AnswerPage_num__QpO1_"))).text
                 if scores == "100":
                     RcorrectList = RcorrectList.union(correctList)
-                    with open(f"internalTest/data/Correct{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(list(RcorrectList),fp=w,indent=2,ensure_ascii=False)
+                    with open(f"Test/data/Correct{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(list(RcorrectList),fp=w,indent=2,ensure_ascii=False)
                 print(f"\n{task}答题--本次得分:{scores}")
                 Test.quit()
                 break
@@ -86,6 +86,7 @@ def internalTest(account, password,tasks):
                         All = ["以上都是","这些都是"]
                         if (option.text in All) and (option.text in Copt):
                             option.click()
+                            judge = 0
                             break
                         option.click()
                         judge = 0
@@ -104,11 +105,11 @@ def internalTest(account, password,tasks):
                     for Q in Copt:
                         if Q not in SelectedOptions:SelectedOptions.append(Q)
                     try:
-                        with open(f"internalTest/data/{filenames[task]}.json", "r", encoding="utf-8") as r:data = json.load(r)
+                        with open(f"Test/data/{filenames[task]}.json", "r", encoding="utf-8") as r:data = json.load(r)
                     except:
                         data = {}
                     data[question] = SelectedOptions
-                    with open(f"internalTest/data/{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
+                    with open(f"Test/data/{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(data,fp=w,indent=2,ensure_ascii=False)
 
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:

@@ -1,7 +1,4 @@
 
 *.exe
-data/accounts.json
-data/account.json
-data/history.json
+account.json
 __pycache__
-internalTest/data/account.json
