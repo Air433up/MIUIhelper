@@ -70,11 +70,12 @@ def accuracy(tasks = filenames):
     else:
         print(f"{tasks} 的综合正确率为 {(CorrectNum/DataNum)*100:.2f}%")
 
-# check("开发版公测")
+check("开发版公测")
 # check("开发版内测")
 # check("稳定版内测")
 
-contrast("开发版内测","稳定版内测")
+contrast("开发版内测","开发版公测")
+contrast("开发版公测","开发版内测")
 
 accuracy("开发版公测")
 accuracy("开发版内测")
