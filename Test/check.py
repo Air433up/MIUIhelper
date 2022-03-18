@@ -37,6 +37,7 @@ def contrast(task1,task2):
                 if set(data1[Unknown]) == set(data2[Unknown]):
                     Correct1.add(Unknown)
                     with open(f"Test/data/Correct{filenames[task1]}.json", "w", encoding="utf-8") as w:json.dump(list(Correct1),fp=w,indent=2,ensure_ascii=False)
+                    continue
             except:pass
             try:
                 if set(data1[Unknown]).issubset(set(data2[Unknown])):
@@ -73,7 +74,7 @@ def accuracy(tasks = filenames):
 # check("开发版内测")
 # check("稳定版内测")
 
-contrast("开发版公测","稳定版内测")
+contrast("开发版公测","开发版内测")
 
 accuracy("开发版公测")
 accuracy("开发版内测")
