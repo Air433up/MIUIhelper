@@ -74,7 +74,7 @@ def accuracy(tasks = filenames):
 # check("开发版内测")
 # check("稳定版内测")
 
-contrast("开发版公测","开发版内测")
+contrast("开发版内测","稳定版内测")
 
 accuracy("开发版公测")
 accuracy("开发版内测")
