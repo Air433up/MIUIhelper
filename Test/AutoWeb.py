@@ -18,26 +18,28 @@ def browser():
     chrome_options.add_experimental_option('prefs',prefs)
     return webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
 
-wait_time = 10
+wait_time = 5
+wait = 5
 
 def internalTest(account, password,tasks):
+    Test = browser()
+    Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[2]/div/div[1]/div/input"))).send_keys(password) # 输入密码
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[3]/label/span[1]"))).click() # 勾选协议
+    WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/button"))).click() # 点击登录
+    try:
+        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div[3]/div[2]"))) # 判断是否打开
+        print(f"\n{account}登录成功！")
+    except:
+        print(f"\n{account}登录失败...")
+        return False
+
     for task in tasks:
         try:
             with open(f"Test/data/{filenames[task]}.json", "r", encoding="utf-8") as r:Questions = json.load(r)
         except:Questions = {}
-        Test = browser()
-        Test.get(url="https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
-        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[4]/div[2]/a"))).click()  # 点击密码登录
-        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[1]/div[2]/div/div/div/div/input"))).send_keys(account) # 输入账号
-        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[2]/div/div[1]/div/input"))).send_keys(password) # 输入密码
-        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/div[3]/label/span[1]"))).click() # 勾选协议
-        WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[1]/form/div[1]/button"))).click() # 点击登录
-        try:
-            WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div[3]/div[2]"))) # 判断是否打开
-            print(f"\n{account}登录成功！")
-        except:
-            print(f"\n{account}登录失败...")
-            return False
 
         Test.execute_cdp_cmd("Emulation.setUserAgentOverride", {"userAgent": UserAgent})
 
@@ -50,9 +52,9 @@ def internalTest(account, password,tasks):
             except:pass
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.ID, "root")))
         WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "SystemTestDetails_rightIcon__1E11Q"))).click() # 点击答题
-        try:WebDriverWait(Test, 2).until(EC.visibility_of_element_located((By.CLASS_NAME, "Button_btn__3V80m"))).click() # 点击再次答题
+        try:WebDriverWait(Test, wait).until(EC.visibility_of_element_located((By.CLASS_NAME, "Button_btn__3V80m"))).click() # 点击再次答题
         except:pass
-        try:WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.XPATH, "/html/body/section/div/div/div[1]/div[2]/div"))).click() # 点击同意协议
+        try:WebDriverWait(Test, wait).until(EC.visibility_of_element_located((By.XPATH, "/html/body/section/div/div/div[1]/div[2]/div"))).click() # 点击同意协议
         except:pass
         print(f"进入{task}答题页面...")
         correctList = set()
@@ -67,7 +69,11 @@ def internalTest(account, password,tasks):
                     RcorrectList = RcorrectList.union(correctList)
                     with open(f"Test/data/Correct{filenames[task]}.json", "w", encoding="utf-8") as w:json.dump(list(RcorrectList),fp=w,indent=2,ensure_ascii=False)
                 print(f"\n{task}答题--本次得分:{scores}")
-                Test.quit()
+                for _ in range(3):
+                    try:
+                        WebDriverWait(Test, 5).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='root']/div/div[3]/div[2]"))) # 判断是否打开
+                        break
+                    except:Test.back()
                 break
             except:pass
 
@@ -115,4 +121,6 @@ def internalTest(account, password,tasks):
                 WebDriverWait(Test, wait_time).until(EC.visibility_of_element_located((By.CLASS_NAME, "button"))).click() # 点击下一题
             except:
                 Test.refresh()
+                Test.back()
                 pass
+    Test.quit()
