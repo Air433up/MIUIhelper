@@ -1,0 +1,5 @@
+
+*.exe
+account.json
+__pycache__
+ignore.json
