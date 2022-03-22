@@ -42,7 +42,11 @@ def internalTest(account, password,tasks):
 
         Test.execute_cdp_cmd("Emulation.setUserAgentOverride", {"userAgent": UserAgent})
 
-        WebDriverWait(Test, wait_control).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_find-more__1Fe8J"))).click() # 点击展开
+        try:
+            WebDriverWait(Test, wait_control).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_find-more__1Fe8J"))).click() # 点击展开
+        except:
+            Test.back()
+            WebDriverWait(Test, wait_control).until(EC.visibility_of_element_located((By.CLASS_NAME, "TestCenter_find-more__1Fe8J"))).click() # 点击展开
         TestOptions = WebDriverWait(Test, wait_page).until(EC.visibility_of_any_elements_located((By.CLASS_NAME, "TestCenter_text__SUpLA")))
         for TestOption in TestOptions:
             try:
