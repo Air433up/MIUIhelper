@@ -20,13 +20,8 @@ answer_time = 5
 
 def Answer(account, password):
 
-    correctGitee = requests.get(url="https://gitee.com/azurstar/MIUIhelper/raw/main/data/correctCopy.json").text
-    correctGitee = json.loads(correctGitee) #不定期在gitee上更新数据
-
     with open("data/correct.json", "r", encoding="utf-8") as r:
         crrect = json.load(r)
-        
-    crrect = dict(crrect, **correctGitee)
 
     with open("data/keywords.json", "r", encoding="utf-8") as r:
         keywords = json.load(r)
