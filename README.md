@@ -1,59 +1,63 @@
-# MIUIhelper
-* 最近想给手机root一下，发现居然要等7天，我又没有测试资格，为了防止以后再出现类似情况，于是决定写个脚本攒分  
-* 该脚本需要使用`Python 3.6`以上版本运行  
-* 抓包过程中有被加密数据，我无法处理，故使用了`selenium`,目前仅支持了`Chrome`浏览器(其他浏览器请自行调整代码)  
-    * `selenium`支持`FireFox`,`Chrome`,`Ie`,`Edge`,`Safari`等众多浏览器(未列举完)，使用其他浏览器需要微调`web.py`
-* 答题准确性需要数据的支撑，若出现未记录的答案，将会随机选择并记录，欢迎大家提交数据`correct.json`(我也会不定期上传数据到Gitee)  
-* 支持多账号答题  
-* 正在设法让打开APP得到的4分也自动化 
+# 此处是新坑
+* [旧版在这](https://github.com/azurstar/MIUIhelper/tree/main)  
 
-# 声明
+## 声明
 * 使用 MIUIhelper  即表明，您知情并同意：  
     * 该项目仅供学习交流，严禁用于商业用途  
     * MIUIhelper 不会对您的任何损失负责，包括但不限于账号异常、核弹爆炸、第三次世界大战等
 
-# 安装
-* Python的第三方库安装  
-    ```
-    pip3 install requests
-    pip3 install selenium
-    ```  
+## 使用  
+* 使用的第三方库
+```
+pip3 install requests_toolbelt
+pip3 install requests
+```
 
-* 浏览器安装(以Chrome为例)  
-    * Windows：https://www.google.com/chrome/
-    * Linux  
-        * Ubuntu、Debian  
+* 每日任务  
+    * 每日五题(10分)和每日打开App(4分)  
+    * 将账号密码填入`Daily\data\accounts.json`  
+    * 在该项目的根目录下输入`python3 daily.py`即可运行  
+        * 建议设置定时运行  
+        * 若出现未收录题目将会随机选择, 并在之后自动收录题目的正确选项  
+    * 青龙面板部署:
+        * 将以下命令添加至`定时任务`并运行  
+
         ```
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt install ./google-chrome-stable_current_amd64.deb
-        ```
-        * CentOS  
-        ```
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-        sudo dnf localinstall ./google-chrome-stable_current_x86_64.rpm
+        ql repo https://github.com/azurstar/MIUIhelper.git Daily/ql_panel
         ```
 
-* 浏览器版本查看  
-    * Windows  
-    ![Win](image/ChromeVersion_win.png)  
-    * Linux  
-    ![Linux](image/ChromeVersion_linux.png)  
-    ```
-    google-chrome --version
-    ```  
-  
-* 将`Chromedriver`放入该项目目录下，`Chromedriver`的版本需要根据浏览器选择  
-    * [Chromedriver下载](http://chromedriver.storage.googleapis.com/index.html)  
-    * 根据浏览器版本选择(以Linux为例，我的浏览器版本为`98.0.4758.80`)  
-    ![example1](image/example1.png)  
-    ![example2](image/example2.png)  
+        * 立即执行一次产生的`main.py`生成所需json文件 
+        * 在Python3的依赖管理中添加`requests_toolbelt`和`requests`  
+        * 然后在生成的`accounts.json`中填入所需的账号即可  
+        * 若账号在非常用设备上登录, 可能会需要验证码, 使用该设备自行前去验证https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest
 
-* 最后将`chromedriver`放入该项目的目录下，至此结束(若没有对应浏览器版本就选择版本号相近的)  
-    ![example3](image/example3.png)  
-  
-# 使用  
-* 将小米账户的`账号`和`密码`分别填入`accounts.json`中的`account`与`password`，支持多账号答题  
-* 在项目目录下使用`python3 main.py`即可  
-* 自动运行  
-    * Windows 可以使用系统自带的`计划任务`(详见百度)  
-    * Linux 可以使用`crontab`  
+* 测试答题    
+    * 将账号密码填入`Test\data\accounts.json`,tasks对应需要答题的测试项目,具体查看[相关参数](#相关参数)  
+    * 在该项目的根目录下输入`python3 test.py`即可运行  
+    * 注意: 请避免使用后台运行, 若出现未收录的题目需要自行判断!  
+
+* 自定义机型申请      
+    * 将账号密码填入`Apply\data\accounts.json`,devices对应需要申请的设备代号  
+    * 在该项目的根目录下输入`python3 apply.py`即可运行  
+
+## 待解决  
+* 写readme...
+
+## 已解决  
+* 自定义内测机型申请  
+* 三项内测答题  
+* 每日打开app的4分  
+* 每日五题  
+* cookie更新  
+
+## 相关参数  
+|  项目id  |  项目名称  |
+|  ----  |  ----  |
+|  10001  |  开发版公测  |
+|  10002  |  开发版内测  |
+|  10003  |  稳定版内测  |
+
+## 记录一下需要的信息  
+* https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest  
+* https://miuiver.com/xiaomi-device-codename/  
+ 

@@ -1,0 +1,902 @@
+[
+  {
+    "name": "机型设备",
+    "code": "代号名称",
+    "date": "发布时间"
+  },
+  {
+    "name": "红米10C",
+    "code": "fog",
+    "date": "2022-03-17"
+  },
+  {
+    "name": "红米K50",
+    "code": "rubens",
+    "date": "2022-03-17"
+  },
+  {
+    "name": "红米K50 Pro",
+    "code": "matisse",
+    "date": "2022-03-17"
+  },
+  {
+    "name": "红米K40S",
+    "code": "munch",
+    "date": "2022-03-17"
+  },
+  {
+    "name": "红米Note11 Pro",
+    "code": "viva",
+    "date": "2022-03-07"
+  },
+  {
+    "name": "红米Note11E",
+    "code": "light",
+    "date": "2022-03-07"
+  },
+  {
+    "name": "红米K50 电竞版",
+    "code": "ingres",
+    "date": "2022-02-16"
+  },
+  {
+    "name": "红米Note11 NFC",
+    "code": "spesn",
+    "date": "2022-02-07"
+  },
+  {
+    "name": "红米Note11",
+    "code": "spes",
+    "date": "2022-02-07"
+  },
+  {
+    "name": "红米Note11E Pro / 红米Note11 Pro 5G",
+    "code": "veux",
+    "date": "2022-01-26"
+  },
+  {
+    "name": "红米Note11S / POCO M4 Pro 4G",
+    "code": "fleur",
+    "date": "2022-01-26"
+  },
+  {
+    "name": "小米12 Pro",
+    "code": "zeus",
+    "date": "2021-12-28"
+  },
+  {
+    "name": "小米12X",
+    "code": "psyche",
+    "date": "2021-12-28"
+  },
+  {
+    "name": "小米12",
+    "code": "cupid",
+    "date": "2021-12-28"
+  },
+  {
+    "name": "POCO M4 Pro 5G",
+    "code": "evergreen",
+    "date": "2021-11-09"
+  },
+  {
+    "name": "红米Note11 Pro / Pro+",
+    "code": "pissarro",
+    "date": "2021-10-28"
+  },
+  {
+    "name": "红米Note11 5G",
+    "code": "evergo",
+    "date": "2021-10-28"
+  },
+  {
+    "name": "红米Note11 4G",
+    "code": "selenes",
+    "date": "2021-10-28"
+  },
+  {
+    "name": "小米CIVI",
+    "code": "mona",
+    "date": "2021-09-27"
+  },
+  {
+    "name": "小米11青春活力版",
+    "code": "lisa",
+    "date": "2021-09-15"
+  },
+  {
+    "name": "小米11T",
+    "code": "agate",
+    "date": "2021-09-15"
+  },
+  {
+    "name": "小米11T Pro",
+    "code": "vili",
+    "date": "2021-09-15"
+  },
+  {
+    "name": "红米10",
+    "code": "selene",
+    "date": "2021-08-19"
+  },
+  {
+    "name": "小米MIX4",
+    "code": "odin",
+    "date": "2021-08-10"
+  },
+  {
+    "name": "小米平板5 Pro (WiFi)",
+    "code": "elish",
+    "date": "2021-08-10"
+  },
+  {
+    "name": "小米平板5 Pro (5G)",
+    "code": "enuma",
+    "date": "2021-08-10"
+  },
+  {
+    "name": "小米平板5",
+    "code": "nabu",
+    "date": "2021-08-10"
+  },
+  {
+    "name": "红米Note 10 Pro (China) / POCO X3 GT",
+    "code": "chopin",
+    "date": "2021-05-26"
+  },
+  {
+    "name": "红米Note 10 (China) / POCO M3 Pro",
+    "code": "camellia",
+    "date": "2021-05-26"
+  },
+  {
+    "name": "红米Note 8 (21年款)",
+    "code": "biloba",
+    "date": "2021-05-24"
+  },
+  {
+    "name": "红米K40 游戏增强版 / POCO F3 GT",
+    "code": "ares",
+    "date": "2021-04-27"
+  },
+  {
+    "name": "小米MIX Fold",
+    "code": "cetus",
+    "date": "2021-03-29"
+  },
+  {
+    "name": "小米11 青春版",
+    "code": "renoir",
+    "date": "2021-03-29"
+  },
+  {
+    "name": "小米11 Pro / Ultra",
+    "code": "star",
+    "date": "2021-03-29"
+  },
+  {
+    "name": "小米11 Lite",
+    "code": "courbet",
+    "date": "2021-03-29"
+  },
+  {
+    "name": "POCO X3 Pro",
+    "code": "vayu",
+    "date": "2021-03-22"
+  },
+  {
+    "name": "小米10S",
+    "code": "thyme",
+    "date": "2021-03-10"
+  },
+  {
+    "name": "红米Note 10 Pro",
+    "code": "sweet",
+    "date": "2021-03-04"
+  },
+  {
+    "name": "红米Note 10 5G",
+    "code": "camellian",
+    "date": "2021-03-04"
+  },
+  {
+    "name": "红米Note 10S",
+    "code": "rosemary",
+    "date": "2021-03-04"
+  },
+  {
+    "name": "红米Note 10",
+    "code": "mojito",
+    "date": "2021-03-04"
+  },
+  {
+    "name": "红米K40 Pro / Pro+ / 小米11i / 小米11X Pro",
+    "code": "haydn",
+    "date": "2021-02-25"
+  },
+  {
+    "name": "红米K40 / POCO F3",
+    "code": "alioth",
+    "date": "2021-02-25"
+  },
+  {
+    "name": "小米11",
+    "code": "venus",
+    "date": "2020-12-28"
+  },
+  {
+    "name": "红米Note 9T 5G",
+    "code": "cannong",
+    "date": "2020-12-01"
+  },
+  {
+    "name": "红米Note 9 Pro 5G / 小米10T Lite",
+    "code": "gauguin",
+    "date": "2020-11-26"
+  },
+  {
+    "name": "红米Note 9 5G",
+    "code": "cannon",
+    "date": "2020-11-26"
+  },
+  {
+    "name": "红米Note 9 4G / 红米9T",
+    "code": "lime",
+    "date": "2020-11-26"
+  },
+  {
+    "name": "POCO M3",
+    "code": "citrus",
+    "date": "2020-11-24"
+  },
+  {
+    "name": "红米K30S 至尊纪念版 / 小米10T / 10T Pro",
+    "code": "apollo",
+    "date": "2020-10-27"
+  },
+  {
+    "name": "POCO C3",
+    "code": "angelicain",
+    "date": "2020-10-06"
+  },
+  {
+    "name": "POCO M2",
+    "code": "shiva",
+    "date": "2020-09-08"
+  },
+  {
+    "name": "POCO X3 NFC",
+    "code": "surya",
+    "date": "2020-09-07"
+  },
+  {
+    "name": "红米9C NFC",
+    "code": "angelican",
+    "date": "2020-08-31"
+  },
+  {
+    "name": "红米9 (India)",
+    "code": "cattail",
+    "date": "2020-08-27"
+  },
+  {
+    "name": "小米10 至尊纪念版",
+    "code": "cas",
+    "date": "2020-08-11"
+  },
+  {
+    "name": "红米K30 至尊纪念版",
+    "code": "cezanne",
+    "date": "2020-08-11"
+  },
+  {
+    "name": "POCO M2 Pro",
+    "code": "gram",
+    "date": "2020-07-07"
+  },
+  {
+    "name": "红米9A / 9AT",
+    "code": "dandelion",
+    "date": "2020-06-30"
+  },
+  {
+    "name": "红米9C",
+    "code": "angelica",
+    "date": "2020-06-30"
+  },
+  {
+    "name": "红米9",
+    "code": "lancelot",
+    "date": "2020-06-15"
+  },
+  {
+    "name": "小米Note10 Lite",
+    "code": "toco",
+    "date": "2020-05-30"
+  },
+  {
+    "name": "红米10X Pro",
+    "code": "bomb",
+    "date": "2020-05-26"
+  },
+  {
+    "name": "红米10X 5G",
+    "code": "atom",
+    "date": "2020-05-26"
+  },
+  {
+    "name": "红米K30i 5G",
+    "code": "picasso_48m",
+    "date": "2020-05-26"
+  },
+  {
+    "name": "红米10X 4G / 红米Note 9",
+    "code": "merlin",
+    "date": "2020-04-30"
+  },
+  {
+    "name": "小米10 青春版",
+    "code": "vangogh",
+    "date": "2020-04-27"
+  },
+  {
+    "name": "小米10 Lite",
+    "code": "monet",
+    "date": "2020-03-27"
+  },
+  {
+    "name": "红米K30 Pro / 变焦版 / POCO F2 Pro",
+    "code": "lmi",
+    "date": "2020-03-24"
+  },
+  {
+    "name": "红米Note 9 Pro Max",
+    "code": "excalibur",
+    "date": "2020-03-12"
+  },
+  {
+    "name": "红米Note 9S / Pro (India)",
+    "code": "curtana",
+    "date": "2020-03-12"
+  },
+  {
+    "name": "红米Note9 Pro",
+    "code": "joyeuse",
+    "date": "2020-03-12"
+  },
+  {
+    "name": "小米10 Pro",
+    "code": "cmi",
+    "date": "2020-02-13"
+  },
+  {
+    "name": "小米10",
+    "code": "umi",
+    "date": "2020-02-13"
+  },
+  {
+    "name": "红米8A Pro / 红米8A Dual",
+    "code": "olivewood",
+    "date": "2020-02-11"
+  },
+  {
+    "name": "POCO X2 印度版",
+    "code": "phoenixin",
+    "date": "2020-02-04"
+  },
+  {
+    "name": "红米K30 5G",
+    "code": "picasso",
+    "date": "2019-12-10"
+  },
+  {
+    "name": "红米K30 4G / POCO X2",
+    "code": "phoenix",
+    "date": "2019-12-10"
+  },
+  {
+    "name": "红米Note 8T",
+    "code": "willow",
+    "date": "2019-11-06"
+  },
+  {
+    "name": "小米CC9 Pro / 小米Note 10",
+    "code": "tucana",
+    "date": "2019-11-06"
+  },
+  {
+    "name": "红米Note 8 Pro 印度版",
+    "code": "begoniain",
+    "date": "2019-10-21"
+  },
+  {
+    "name": "红米8",
+    "code": "olive",
+    "date": "2019-10-09"
+  },
+  {
+    "name": "红米8A",
+    "code": "olivelite",
+    "date": "2019-09-25"
+  },
+  {
+    "name": "小米9 Pro 5G",
+    "code": "crux",
+    "date": "2019-09-24"
+  },
+  {
+    "name": "红米K20 Pro 尊享版",
+    "code": "raphaels",
+    "date": "2019-09-19"
+  },
+  {
+    "name": "红米Note 8 Pro",
+    "code": "begonia",
+    "date": "2019-08-29"
+  },
+  {
+    "name": "红米Note 8",
+    "code": "ginkgo",
+    "date": "2019-08-29"
+  },
+  {
+    "name": "小米A3",
+    "code": "laurel",
+    "date": "2019-07-17"
+  },
+  {
+    "name": "小米CC9e",
+    "code": "laurus",
+    "date": "2019-07-02"
+  },
+  {
+    "name": "小米CC9 / 小米9 Lite",
+    "code": "pyxis",
+    "date": "2019-07-02"
+  },
+  {
+    "name": "小米CC9 美图定制版",
+    "code": "vela",
+    "date": "2019-07-02"
+  },
+  {
+    "name": "红米K20 / 小米9T 印度版",
+    "code": "davinciin",
+    "date": "2019-06-12"
+  },
+  {
+    "name": "红米K20 / 小米9T",
+    "code": "davinci",
+    "date": "2019-05-28"
+  },
+  {
+    "name": "红米K20 Pro / 小米9T Pro",
+    "code": "raphael",
+    "date": "2019-05-28"
+  },
+  {
+    "name": "红米K20 Pro 印度版",
+    "code": "raphaelin",
+    "date": "2019-05-28"
+  },
+  {
+    "name": "红米7A",
+    "code": "pine",
+    "date": "2019-05-22"
+  },
+  {
+    "name": "红米Y3",
+    "code": "onc",
+    "date": "2019-04-24"
+  },
+  {
+    "name": "红米7",
+    "code": "onclite",
+    "date": "2019-03-18"
+  },
+  {
+    "name": "小米MIX 3 5G",
+    "code": "andromeda",
+    "date": "2019-02-24"
+  },
+  {
+    "name": "小米9",
+    "code": "cepheus",
+    "date": "2019-02-20"
+  },
+  {
+    "name": "小米9 SE",
+    "code": "grus",
+    "date": "2019-02-20"
+  },
+  {
+    "name": "红米Go",
+    "code": "tiare",
+    "date": "2019-01-29"
+  },
+  {
+    "name": "红米Note 7",
+    "code": "lavender",
+    "date": "2019-01-10"
+  },
+  {
+    "name": "红米Note 7 Pro",
+    "code": "violet",
+    "date": "2019-01-10"
+  },
+  {
+    "name": "小米Play",
+    "code": "lotus",
+    "date": "2018-12-24"
+  },
+  {
+    "name": "红米Note 6 Pro",
+    "code": "tulip",
+    "date": "2018-11-22"
+  },
+  {
+    "name": "小米MIX 3",
+    "code": "perseus",
+    "date": "2018-10-25"
+  },
+  {
+    "name": "小米8 Lite",
+    "code": "platina",
+    "date": "2018-09-19"
+  },
+  {
+    "name": "红米6 Pro",
+    "code": "sakura",
+    "date": "2018-09-05"
+  },
+  {
+    "name": "POCO F1",
+    "code": "beryllium",
+    "date": "2018-08-22"
+  },
+  {
+    "name": "小米平板4/Plus",
+    "code": "clover",
+    "date": "2018-08-14"
+  },
+  {
+    "name": "小米A2 Lite",
+    "code": "daisy",
+    "date": "2018-07-24"
+  },
+  {
+    "name": "小米A2",
+    "code": "jasmine",
+    "date": "2018-07-24"
+  },
+  {
+    "name": "小米Max 3",
+    "code": "nitrogen",
+    "date": "2018-07-19"
+  },
+  {
+    "name": "红米6A",
+    "code": "cactus",
+    "date": "2018-06-12"
+  },
+  {
+    "name": "红米6",
+    "code": "cereus",
+    "date": "2018-06-12"
+  },
+  {
+    "name": "小米8",
+    "code": "dipper",
+    "date": "2018-05-31"
+  },
+  {
+    "name": "小米8 Pro 屏幕指纹版",
+    "code": "equuleus",
+    "date": "2018-05-31"
+  },
+  {
+    "name": "小米8 SE",
+    "code": "sirius",
+    "date": "2018-05-31"
+  },
+  {
+    "name": "小米8 透明探索版",
+    "code": "ursa",
+    "date": "2018-05-31"
+  },
+  {
+    "name": "红米S2 / 红米Y2",
+    "code": "ysl",
+    "date": "2018-05-10"
+  },
+  {
+    "name": "小米6X",
+    "code": "wayne",
+    "date": "2018-04-25"
+  },
+  {
+    "name": "小米MIX 2S",
+    "code": "polaris",
+    "date": "2018-03-27"
+  },
+  {
+    "name": "红米Note 5 / Pro",
+    "code": "whyred",
+    "date": "2018-02-14"
+  },
+  {
+    "name": "红米5",
+    "code": "rosy",
+    "date": "2017-12-07"
+  },
+  {
+    "name": "红米5 Plus",
+    "code": "vince",
+    "date": "2017-12-07"
+  },
+  {
+    "name": "红米5A",
+    "code": "riva",
+    "date": "2017-10-20"
+  },
+  {
+    "name": "小米MIX 2",
+    "code": "chiron",
+    "date": "2017-09-11"
+  },
+  {
+    "name": "小米Note 3",
+    "code": "jason",
+    "date": "2017-09-11"
+  },
+  {
+    "name": "小米A1",
+    "code": "tissot",
+    "date": "2017-09-05"
+  },
+  {
+    "name": "红米Note 5A 高配版",
+    "code": "ugg",
+    "date": "2017-08-21"
+  },
+  {
+    "name": "红米Note 5A 标准版",
+    "code": "ugglite",
+    "date": "2017-08-21"
+  },
+  {
+    "name": "小米5X",
+    "code": "tiffany",
+    "date": "2017-07-26"
+  },
+  {
+    "name": "小米Max 2",
+    "code": "oxygen",
+    "date": "2017-05-25"
+  },
+  {
+    "name": "小米6",
+    "code": "sagit",
+    "date": "2017-04-19"
+  },
+  {
+    "name": "小米平板3",
+    "code": "cappu",
+    "date": "2017-04-06"
+  },
+  {
+    "name": "小米5C",
+    "code": "meri",
+    "date": "2017-02-28"
+  },
+  {
+    "name": "红米4X",
+    "code": "santoni",
+    "date": "2017-02-28"
+  },
+  {
+    "name": "红米Note 4X 高通版",
+    "code": "mido",
+    "date": "2017-01-19"
+  },
+  {
+    "name": "红米Note 4 联发科版",
+    "code": "nikel",
+    "date": "2017-01-19"
+  },
+  {
+    "name": "红米4 高配版",
+    "code": "markw",
+    "date": "2016-11-04"
+  },
+  {
+    "name": "红米4 标准版",
+    "code": "prada",
+    "date": "2016-11-04"
+  },
+  {
+    "name": "红米4A",
+    "code": "rolex",
+    "date": "2016-11-04"
+  },
+  {
+    "name": "小米MIX",
+    "code": "lithium",
+    "date": "2016-10-25"
+  },
+  {
+    "name": "小米Note 2",
+    "code": "scorpio",
+    "date": "2016-10-25"
+  },
+  {
+    "name": "小米5S",
+    "code": "capricorn",
+    "date": "2016-09-27"
+  },
+  {
+    "name": "小米5S Plus",
+    "code": "natrium",
+    "date": "2016-09-27"
+  },
+  {
+    "name": "红米Pro",
+    "code": "omega",
+    "date": "2016-07-27"
+  },
+  {
+    "name": "红米3S",
+    "code": "land",
+    "date": "2016-06-15"
+  },
+  {
+    "name": "小米Max 高配版",
+    "code": "helium",
+    "date": "2016-06-01"
+  },
+  {
+    "name": "小米Max 标准版",
+    "code": "hydrogen",
+    "date": "2016-05-10"
+  },
+  {
+    "name": "小米4S",
+    "code": "aqua",
+    "date": "2016-02-24"
+  },
+  {
+    "name": "小米5",
+    "code": "gemini",
+    "date": "2016-02-24"
+  },
+  {
+    "name": "红米3 / Pro",
+    "code": "ido",
+    "date": "2016-01-10"
+  },
+  {
+    "name": "红米Note 3 台湾特别版",
+    "code": "kate",
+    "date": "2015-11-25"
+  },
+  {
+    "name": "红米Note 3 全网通版",
+    "code": "kenzo",
+    "date": "2015-11-25"
+  },
+  {
+    "name": "红米Note 3 双网通版",
+    "code": "hennessy",
+    "date": "2015-11-24"
+  },
+  {
+    "name": "小米平板2",
+    "code": "latte",
+    "date": "2015-11-24"
+  },
+  {
+    "name": "小米4C",
+    "code": "libra",
+    "date": "2015-09-22"
+  },
+  {
+    "name": "红米Note 2",
+    "code": "hermes",
+    "date": "2015-08-13"
+  },
+  {
+    "name": "小米4i",
+    "code": "ferrari",
+    "date": "2015-04-23"
+  },
+  {
+    "name": "红米2A 标准版",
+    "code": "lte26007",
+    "date": "2015-03-01"
+  },
+  {
+    "name": "小米Note 顶配版",
+    "code": "leo",
+    "date": "2015-01-15"
+  },
+  {
+    "name": "小米Note 双网通 / 全网通",
+    "code": "virgo",
+    "date": "2015-01-15"
+  },
+  {
+    "name": "红米手机2 增强版",
+    "code": "wt86047",
+    "date": "2015-01-04"
+  },
+  {
+    "name": "红米手机2",
+    "code": "wt88047",
+    "date": "2015-01-04"
+  },
+  {
+    "name": "红米Note 4G单卡版",
+    "code": "dior",
+    "date": "2014-08-12"
+  },
+  {
+    "name": "红米Note 4G双卡版",
+    "code": "gucci",
+    "date": "2014-08-12"
+  },
+  {
+    "name": "小米3 / 小米4",
+    "code": "cancro",
+    "date": "2014-07-22"
+  },
+  {
+    "name": "红米手机1S",
+    "code": "armani",
+    "date": "2014-07-16"
+  },
+  {
+    "name": "红米手机1S 移动3G版",
+    "code": "HM2014011",
+    "date": "2014-07-16"
+  },
+  {
+    "name": "红米手机1S 移动4G版",
+    "code": "HM2014501",
+    "date": "2014-07-16"
+  },
+  {
+    "name": "小米平板1",
+    "code": "mocha",
+    "date": "2014-05-15"
+  },
+  {
+    "name": "红米Note",
+    "code": "lcsh92",
+    "date": "2014-03-20"
+  },
+  {
+    "name": "小米2A",
+    "code": "taurus",
+    "date": "2013-10-24"
+  },
+  {
+    "name": "小米3 移动版",
+    "code": "pisces",
+    "date": "2013-09-05"
+  },
+  {
+    "name": "红米手机",
+    "code": "HM2013023",
+    "date": "2013-07-12"
+  },
+  {
+    "name": "小米2S",
+    "code": "aries",
+    "date": "2013-06-17"
+  },
+  {
+    "name": "小米1S",
+    "code": "mione",
+    "date": "2012-08-23"
+  }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "account": "账号1",
+        "password": "密码",
+        "devices":{
+            "10001":["matisse","munch","psyche"],
+            "10002":["veux", "ares", "grus"],
+            "10003":["rubens", "dandelion", "veux"]
+        }
+    },
+    {
+        "account": "账号2",
+        "password": "密码",
+        "devices":{
+            "10001":["matisse","munch","psyche"],
+            "10002":["veux", "ares", "grus"],
+            "10003":["rubens", "dandelion", "veux"]
+        }
+    },
+    {
+        "account": "账号3",
+        "password": "密码",
+        "devices":{
+            "10001":["matisse","munch","psyche"],
+            "10002":["veux", "ares", "grus"],
+            "10003":["rubens", "dandelion", "veux"]
+        }
+    }
+]
