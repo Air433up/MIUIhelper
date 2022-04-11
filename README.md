@@ -1,8 +1,7 @@
 # 此处是新坑
 * [旧版在这](https://github.com/azurstar/MIUIhelper/tree/main)  
 
-* <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=pXxSae9XLz6Sid63B1zDlAM7gFTEc_Pm&jump_from=webapi"><img border="0" src="//user-images.githubusercontent.com/91844313/162752581-15a414ab-50bb-4dd3-b13b-001e6dc245cd.jpg" alt="" title="一个小群"></a>
-
+* [![123](https://user-images.githubusercontent.com/91844313/162752581-15a414ab-50bb-4dd3-b13b-001e6dc245cd.jpg)](https://qm.qq.com/cgi-bin/qm/qr?k=pXxSae9XLz6Sid63B1zDlAM7gFTEc_Pm&jump_from=webapi)
 ## 声明
 * 使用 MIUIhelper  即表明，您知情并同意：  
     * 该项目仅供学习交流，严禁用于商业用途  
