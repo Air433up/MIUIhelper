@@ -3,6 +3,15 @@
 import requests,json,hashlib,time,random
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
+log_path = "ApplyLog.txt"
+
+def log(value="\n"):
+    f = open(log_path,"a+",encoding="utf-8")
+    print(value)
+    print(value,file=f)
+    f.close()
+
+
 class Apply:
     def __init__(self) -> None:
         pass
@@ -114,7 +123,7 @@ class Apply:
             "10002":"开发版内测",
             "10003":"稳定版内测"
         }
-        print(f'申请 {taskname[str(self.planId)]} {self.applyInfo["devices"][0]["name"]}: {message}')
+        log(f'申请 {taskname[str(self.planId)]} {self.applyInfo["devices"][0]["name"]}: {message}')
 
     def run(self):
         self.Sign()
