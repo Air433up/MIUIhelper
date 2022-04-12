@@ -395,7 +395,6 @@ def init():
         print("若出现登录失败, 可能是账号在非常用设备上登录, 会需要验证码, 使用该设备自行前去验证https://web-alpha.vip.miui.com/page/info/mio/mio/internalTest")
         print("\n出现问题可以来这里提交Issues")
         print("GitHub: https://github.com/azurstar/MIUIhelper")
-        print("Gitee: https://gitee.com/azurstar/MIUIhelper")
         exit()
 
 if __name__ == '__main__':
